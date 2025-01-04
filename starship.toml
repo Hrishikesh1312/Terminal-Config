@@ -1,0 +1,106 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+[character]
+success_symbol = "[❯ ](bold green)"
+error_symbol = "[❯ ](bold red)"
+
+[os]
+disabled = false
+# format = "[](fg:blue)[$symbol](bg:blue fg:black)[](fg:blue)"
+format = "$symbol"
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+aliases = { "corpuser034g" = "matchai" }
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue)@[$hostname](bold blue) '
+trim_at = '.companyname.com'
+disabled = false
+
+[os.symbols]
+Arch = "[ ](fg:bright-blue)"
+Debian = "[ ](fg:red)"
+EndeavourOS = "[ ](fg:purple)"
+Fedora = "[ ](fg:blue)"
+NixOS = "[ ](fg:bright-white)"
+openSUSE = "[ ](fg:green)"
+SUSE = "[ ](fg:green)"
+
+
+[directory]
+format = "[](fg:bright-black)[$path](bg:bright-black fg:white)[](fg:bright-black) "
+read_only = "  "
+truncation_length = 4
+truncation_symbol = "~/…/"
+truncate_to_repo = true
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = " "
+"Projects" = "󱌢 "
+"School" = "󰑴 "
+"www" = ""
+".config" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:bright-black fg:white"
+format = "[](fg:bright-black)[on $symbol$branch(:$remote_branch)]($style)[](fg:bright-black) "
+truncation_length = 20
+
+[docker_context]
+symbol = " "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[java]
+symbol = " "
+
+[python]
+symbol = ""
+format = 'via [${symbol}(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[ruby]
+disabled = true
+style = "bold red"
+format = " via [$symbol]($style)"
+
+
+[nodejs]
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol]($style)"
+
+[package]
+disabled = true
+
+[aws]
+disabled = true
+format = 'on [$symbol$region]($style) '
+style = 'bold yellow'
+symbol = '☁️ '
+[aws.region_aliases]
+ap-southeast-2 = ' (au-2)'
+us-east-1 = ' (ue-1)'
