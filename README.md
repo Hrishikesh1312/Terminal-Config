@@ -42,7 +42,7 @@ echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.z
 ### 5. Configure Starship
 ```bash
 cd ~/.config
-wget https://github.com/Hrishikesh1312/TerminalConfig/blob/main/starship.toml
+wget -L https://raw.github.com/Hrishikesh1312/TerminalConfig/main/starship.toml
 echo "eval \"\$(starship init zsh)\"" >> ~/.zshrc
 ```
 
