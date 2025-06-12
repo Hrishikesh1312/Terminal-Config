@@ -81,7 +81,7 @@ fastfetch --gen-config
 
 # Replace with custom configuration
 rm config.jsonc
-wget https://raw.githubusercontent.com/xerolinux/xero-layan-git/main/Configs/Home/.config/fastfetch/config.jsonc
+wget -L https://raw.github.com/Hrishikesh1312/TerminalConfig/main/config.jsonc
 ```
 
 ## Screenshots
