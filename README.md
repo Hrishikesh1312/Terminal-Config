@@ -42,7 +42,7 @@ echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.z
 ### 5. Configure Starship
 ```bash
 cd ~/.config
-wget -L https://raw.github.com/Hrishikesh1312/TerminalConfig/main/starship.toml
+wget https://raw.github.com/Hrishikesh1312/TerminalConfig/main/starship.toml
 echo "eval \"\$(starship init zsh)\"" >> ~/.zshrc
 ```
 
@@ -81,7 +81,7 @@ fastfetch --gen-config
 
 # Replace with custom configuration
 rm config.jsonc
-wget -L https://raw.github.com/Hrishikesh1312/TerminalConfig/main/config.jsonc
+wget https://raw.github.com/Hrishikesh1312/TerminalConfig/main/config.jsonc
 ```
 
 ## Screenshots
