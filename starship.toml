@@ -21,7 +21,7 @@ aliases = { "corpuser034g" = "matchai" }
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue)@[$hostname](bold blue) '
+format = '[$ssh_symbol](bold blue)@[$hostname](bold #E95420) '
 trim_at = '.companyname.com'
 disabled = false
 
@@ -37,13 +37,13 @@ Ubuntu = "[ ](fg:#E95420)"
 
 [directory]
 format = "[](fg:bright-black)[$path](bg:bright-black fg:white)[](fg:bright-black) "
-read_only = "  "
+read_only = "  "
 truncation_length = 4
 truncation_symbol = "~/…/"
 truncate_to_repo = true
 
 [directory.substitutions]
-"Documents" = " "
+"Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
@@ -69,7 +69,7 @@ detect_folders = []
 disabled = false
 
 [java]
-symbol = " "
+symbol = " "
 
 [python]
 symbol = ""
