@@ -33,7 +33,7 @@ Fedora = "[ ](fg:blue)"
 NixOS = "[ ](fg:bright-white)"
 openSUSE = "[ ](fg:green)"
 SUSE = "[ ](fg:green)"
-
+Ubuntu = "[ ](fg:#E95420)"
 
 [directory]
 format = "[](fg:bright-black)[$path](bg:bright-black fg:white)[](fg:bright-black) "
