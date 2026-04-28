@@ -72,7 +72,7 @@ disabled = false
 symbol = " "
 
 [python]
-symbol = ""
+symbol = " "
 format = 'via [${symbol}(\($virtualenv\) )]($style)'
 style = "bold yellow"
 pyenv_prefix = "venv "
