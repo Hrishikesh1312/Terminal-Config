@@ -78,13 +78,22 @@ This uses the `starship.toml` in this repository as-is. Run the copy command aga
 ### 4. Initialize Starship in PowerShell
 Add Starship to your PowerShell profile:
 ```powershell
+$env:STARSHIP_CONFIG = "C:\path\to\TerminalConfig\starship.toml"
 Invoke-Expression (&starship init powershell)
 ```
 
 If a profile file does not exist, create it first:
 ```powershell
 New-Item -ItemType File -Force -Path $PROFILE | Out-Null
+Add-Content -Path $PROFILE -Value '$env:STARSHIP_CONFIG = "C:\path\to\TerminalConfig\starship.toml"'
 Add-Content -Path $PROFILE -Value 'Invoke-Expression (&starship init powershell)'
+```
+
+If your profile already contains a command like `fastfetch`, keep it and append the Starship lines below it:
+```powershell
+fastfetch
+$env:STARSHIP_CONFIG = "C:\path\to\TerminalConfig\starship.toml"
+Invoke-Expression (&starship init powershell)
 ```
 
 Restart PowerShell, or reload the profile:
@@ -101,7 +110,7 @@ Add-Content -Path $PROFILE -Value 'Invoke-Expression (&starship init powershell)
 . $PROFILE
 ```
 
-Replace `C:\path\to\TerminalConfig\starship.toml` with the actual path where you cloned this repository. The direct-path setup automatically uses the repository file, so changes to it are reflected the next time PowerShell starts.
+Replace `C:\path\to\TerminalConfig\starship.toml` with the actual path where you cloned this repository. This is especially important on Windows because the profile may otherwise contain only startup commands such as `fastfetch`, which prevents Starship from loading. The direct-path setup automatically uses the repository file, so changes to it are reflected the next time PowerShell starts.
 
 ## Fastfetch Configuration
 
