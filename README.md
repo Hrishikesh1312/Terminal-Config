@@ -52,6 +52,57 @@ Change default shell to Zsh
 chsh -s $(which zsh)
 ```
 
+## Windows PowerShell Configuration
+
+### 1. Install Starship
+Install Starship with WinGet from PowerShell:
+```powershell
+winget install --id Starship.Starship
+```
+
+Restart PowerShell after installation, or open a new PowerShell window so that `starship` is available on your `PATH`.
+
+### 2. Install a Nerd Font
+Install any Nerd Font from [nerdfonts.com](https://www.nerdfonts.com/) and select it in your Windows Terminal profile settings. The symbols in this repository's configuration require a font with Nerd Font glyphs.
+
+### 3. Use this repository's Starship configuration
+From the root of this repository, copy the TOML file to Starship's default Windows configuration path:
+```powershell
+$configDirectory = Join-Path $HOME ".config"
+New-Item -ItemType Directory -Force -Path $configDirectory | Out-Null
+Copy-Item .\starship.toml (Join-Path $configDirectory "starship.toml") -Force
+```
+
+This uses the `starship.toml` in this repository as-is. Run the copy command again whenever you want to update the installed configuration after pulling repository changes.
+
+### 4. Initialize Starship in PowerShell
+Add Starship to your PowerShell profile:
+```powershell
+Invoke-Expression (&starship init powershell)
+```
+
+If a profile file does not exist, create it first:
+```powershell
+New-Item -ItemType File -Force -Path $PROFILE | Out-Null
+Add-Content -Path $PROFILE -Value 'Invoke-Expression (&starship init powershell)'
+```
+
+Restart PowerShell, or reload the profile:
+```powershell
+. $PROFILE
+```
+
+### Optional: load the repository file directly
+To keep the configuration in the repository instead of copying it, set `STARSHIP_CONFIG` to the full path of this repository's TOML file before initializing Starship:
+```powershell
+$env:STARSHIP_CONFIG = Join-Path (Get-Location) "starship.toml"
+Add-Content -Path $PROFILE -Value '$env:STARSHIP_CONFIG = "C:\path\to\TerminalConfig\starship.toml"'
+Add-Content -Path $PROFILE -Value 'Invoke-Expression (&starship init powershell)'
+. $PROFILE
+```
+
+Replace `C:\path\to\TerminalConfig\starship.toml` with the actual path where you cloned this repository. The direct-path setup automatically uses the repository file, so changes to it are reflected the next time PowerShell starts.
+
 ## Fastfetch Configuration
 
 ### 1. Install Fastfetch
