@@ -135,6 +135,34 @@ rm config.jsonc
 wget https://raw.github.com/Hrishikesh1312/TerminalConfig/main/config.jsonc
 ```
 
+### Windows PowerShell
+
+Install Fastfetch with WinGet:
+```powershell
+winget install --id Fastfetch-cli.Fastfetch
+```
+
+From the root of this repository, copy the Fastfetch configuration to its Windows configuration directory:
+```powershell
+$configDirectory = Join-Path $env:APPDATA "fastfetch"
+New-Item -ItemType Directory -Force -Path $configDirectory | Out-Null
+Copy-Item .\config.jsonc (Join-Path $configDirectory "config.jsonc") -Force
+```
+
+Run Fastfetch to verify the configuration:
+```powershell
+fastfetch
+```
+
+To display Fastfetch automatically whenever PowerShell starts, add it to your PowerShell profile:
+```powershell
+New-Item -ItemType File -Force -Path $PROFILE | Out-Null
+Add-Content -Path $PROFILE -Value 'fastfetch'
+. $PROFILE
+```
+
+The repository configuration is copied as-is. Its `OS Age` command uses Unix `stat` syntax, so that single module may not produce a value in Windows PowerShell; the remaining Fastfetch modules can still use this configuration.
+
 ## Screenshots
 ### Fastfetch
 ![image](https://github.com/user-attachments/assets/efab8b63-235d-4f11-999a-5020de8042a9)
